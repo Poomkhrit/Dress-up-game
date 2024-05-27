@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Dress Up Game</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .game-container, .main-menu {
+            text-align: center;
+            width: 100%;
+        }
+
+        .main-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .main-menu img {
+            width: 500px;
+            height: auto;
+        }
+
+        .main-menu button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #6200ea;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .main-menu button:hover {
+            background-color: #3700b3;
+        }
+
+        .game-container {
+            display: none;
+        }
+
+        .base-container {
+            position: relative;
+            width: 500px;
+            height: 1px; /* Adjust height if needed */
+            margin: 20px auto 0 auto;
+        }
+
+        .base-container img {
+            width: 500px; /* Set base size */
+            height: auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        .controls {
+            margin-top: 500px; /* Adjust margin to ensure buttons appear below the character image */
+        }
+
+        .category {
+            margin-bottom: 20px;
+        }
+
+        .category img {
+            width: 100px;
+            height: auto;
+            margin: 0 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 5px;
+        }
+
+        .category img:hover {
+            border-color: #3700b3;
+        }
+
+        .clickbait-container {
+            margin-top: 20px;
+        }
+
+        .clickbait-container img {
+            width: 150px;
+            height: auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-menu">
+        <img src="Clickbait.png" alt="Main Menu Image">
+        <button onclick="enterGame()">Play</button>
+    </div>
+    <div class="game-container">
+        <div class="base-container">
+            <img id="base-image" src="Base2.png" alt="Base Image">
+            <img id="underwear1-image" src="Underwear.png" alt="Underwear 1" style="visibility: hidden;">
+            <img id="underwear2-image" src="Underwearnobra.png" alt="Underwear 2" style="visibility: hidden;">
+            <img id="underwear3-image" src="Girlunderwear.png" alt="Underwear 3" style="visibility: hidden;">
+            <img id="clothes1-image" src="Clothes1.png" alt="Clothes 1" style="visibility: hidden;">
+            <img id="clothes2-image" src="Clothes2.png" alt="Clothes 2" style="visibility: hidden;">
+            <img id="clothes3-image" src="Clothes3.png" alt="Clothes 3" style="visibility: hidden;">
+            <img id="clothes4-image" src="Clothes4.png" alt="Clothes 4" style="visibility: hidden;">
+            <img id="clothes5-image" src="Clothes5.png" alt="Clothes 5" style="visibility: hidden;">
+            <img id="clothes6-image" src="Clothes6.png" alt="Clothes 6" style="visibility: hidden;">
+            <img id="clothes7-image" src="Clothes7.png" alt="Clothes 7" style="visibility: hidden;">
+            <img id="clothes8-image" src="Clothes8.png" alt="Clothes 8" style="visibility: hidden;">
+            <img id="clothes9-image" src="Clothes9.png" alt="Clothes 9" style="visibility: hidden;">
+            <img id="clothes10-image" src="Clothes10.png" alt="Clothes 10" style="visibility: hidden;">
+            <img id="clothes11-image" src="Clothes11.png" alt="Clothes 11" style="visibility: hidden;">
+            <img id="clothes12-image" src="Clothes12.png" alt="Clothes 12" style="visibility: hidden;">
+            <img id="clothes13-image" src="Clothes13.png" alt="Clothes 13" style="visibility: hidden;">
+        </div>
+        <div class="controls">
+            <div class="category">
+                <h3>Base</h3>
+                <img src="Base2.png" alt="Base 2" onclick="changeBase('Base2.png')">
+                <img src="Base3.png" alt="Base 3" onclick="changeBase('Base3.png')">
+                <img src="Base4.png" alt="Base 4" onclick="changeBase('Base4.png')">
+            </div>
+            <div class="category">
+                <h3>Underwear</h3>
+                <img src="Underwear.png" alt="Underwear 1" onclick="toggleUnderwear('underwear1-image')">
+                <img src="Underwearnobra.png" alt="Underwear 2" onclick="toggleUnderwear('underwear2-image')">
+                <img src="Girlunderwear.png" alt="Underwear 3" onclick="toggleUnderwear('underwear3-image')">
+            </div>
+            <div class="category">
+                <h3>Clothing</h3>
+                <img src="Clothes1.png" alt="Clothes 1" onclick="toggleClothing('clothes1-image')">
+                <img src="Clothes2.png" alt="Clothes 2" onclick="toggleClothing('clothes2-image')">
+                <img src="Clothes3.png" alt="Clothes 3" onclick="toggleClothing('clothes3-image')">
+                <img src="Clothes4.png" alt="Clothes 4" onclick="toggleClothing('clothes4-image')">
+                <img src="Clothes5.png" alt="Clothes 5" onclick="toggleClothing('clothes5-image')">
+                <img src="Clothes6.png" alt="Clothes 6" onclick="toggleClothing('clothes6-image')">
+                <img src="Clothes7.png" alt="Clothes 7" onclick="toggleClothing('clothes7-image')">
+                <img src="Clothes8.png" alt="Clothes 8" onclick="toggleClothing('clothes8-image')">
+                <img src="Clothes9.png" alt="Clothes 9" onclick="toggleClothing('clothes9-image')">
+                <img src="Clothes10.png" alt="Clothes 10" onclick="toggleClothing('clothes10-image')">
+                <img src="Clothes11.png" alt="Clothes 11" onclick="toggleClothing('clothes11-image')">
+                <img src="Clothes12.png" alt="Clothes 12" onclick="toggleClothing('clothes12-image')">
+                <img src="Clothes13.png" alt="Clothes 13" onclick="toggleClothing('clothes13-image')">
+            </div>
+        </div>
+        <div class="clickbait-container">
+            <img src="Clickbait.png" alt="Clickbait" onclick="clickbaitAction()">
+        </div>
+    </div>
+    <script>
+        function enterGame() {
+            document.querySelector('.main-menu').style.display = 'none';
+            document.querySelector('.game-container').style.display = 'block';
+        }
+
+        function changeBase(baseImage) {
+            document.getElementById('base-image').src = baseImage;
+        }
+
+        function toggleUnderwear(underwearId) {
+            const underwearImages = ['underwear1-image', 'underwear2-image', 'underwear3-image'];
+            underwearImages.forEach(id => {
+                const underwearImage = document.getElementById(id);
+                if (id === underwearId) {
+                    underwearImage.style.visibility = underwearImage.style.visibility === 'visible' ? 'hidden' : 'visible';
+                } else {
+                    underwearImage.style.visibility = 'hidden';
+                }
+            });
+        }
+
+        function toggleClothing(clothingId) {
+            const clothingImages = ['clothes1-image', 'clothes2-image', 'clothes3-image', 'clothes4-image', 'clothes5-image', 'clothes6-image', 'clothes7-image', 'clothes8-image', 'clothes9-image', 'clothes10-image', 'clothes11-image', 'clothes12-image', 'clothes13-image'];
+            clothingImages.forEach(id => {
+                const clothingImage = document.getElementById(id);
+                if (id === clothingId) {
+                    clothingImage.style.visibility = clothingImage.style.visibility === 'visible' ? 'hidden' : 'visible';
+                } else {
+                    clothingImage.style.visibility = 'hidden';
+                }
+            });
+        }
+
+        function clickbaitAction() {
+            alert('Clickbait clicked!');
+            // You can add any action you want to perform here
+        }
+    </script>
+</body>
+</html>
